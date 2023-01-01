@@ -26,3 +26,27 @@ s contains only lowercase English letters and spaces ' '.
 s does not contain any leading or trailing spaces.
 All the words in s are separated by a single space.
 """
+
+def wordPattern(self, pattern, s):
+    """
+    :type pattern: str
+    :type s: str
+    :rtype: bool
+    """
+    s=s.split()
+    if len(s)!=len(pattern):
+        return False
+    a={}
+    b={}
+    for i in range(len(pattern)):
+        if pattern[i] not in a:
+            a[pattern[i]]=[i]
+        else:
+            a[pattern[i]].append(i)
+        if s[i] not in b:
+            b[s[i]]=[i]
+        else:
+            b[s[i]].append(i)
+    if sorted(a.values())==sorted(b.values()):
+        return True
+        
