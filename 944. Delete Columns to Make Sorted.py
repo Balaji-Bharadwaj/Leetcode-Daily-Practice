@@ -39,3 +39,16 @@ Explanation: The grid looks as follows:
   tsr
 All 3 columns are not sorted, so you will delete all 3.
 """
+def minDeletionSize(self, strs):
+    """
+    :type strs: List[str]
+    :rtype: int
+    """
+    count=0
+    for i in range(len(strs[0])):
+        a=[]
+        for j in range(len(strs)):
+            a.append(strs[j][i])
+        if a!=sorted(a):
+            count+=1
+    return count
