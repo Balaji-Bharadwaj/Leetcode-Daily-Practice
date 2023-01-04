@@ -27,3 +27,26 @@ Constraints:
 1 <= tasks.length <= 105
 1 <= tasks[i] <= 109
 """
+def minimumRounds(self, tasks):
+    """
+    :type tasks: List[int]
+    :rtype: int
+    """
+    a={}
+    for i in tasks:
+        if i not in a:
+            a[i]=1
+        else:
+            a[i]+=1
+    c=0
+    print(a)
+    for i in a.values():
+        if i==1:
+            return -1
+        elif i%3==0:
+            c+=i//3
+        elif i%3==2:
+            c+=((i-2)//3)+1
+        elif i%3==1:
+            c+=((i-2)//3)+2
+    return c
