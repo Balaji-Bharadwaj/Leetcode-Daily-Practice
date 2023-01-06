@@ -33,3 +33,17 @@ costs.length == n
 1 <= costs[i] <= 105
 1 <= coins <= 108
 """
+def maxIceCream(self, costs, coins):
+    """
+    :type costs: List[int]
+    :type coins: int
+    :rtype: int
+    """
+    costs.sort()
+    count=0
+    for i in costs:
+        if i<=coins:
+            coins-=i
+            count+=1
+    return count
+                
